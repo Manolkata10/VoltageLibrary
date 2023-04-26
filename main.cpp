@@ -1,4 +1,4 @@
-#include "I2CLib/i2c.h"
+#include "../I2CLib/i2c.h"
 #include <iostream>
 
 int main()
