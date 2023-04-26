@@ -1,15 +1,15 @@
 all: remote
 
-OUTPUT_NAME=main
+OUTPUT_NAME=voltagelib
 COMPILER=g++
 CONFIG=
 BUILD=$(COMPILER) $^ $(CONFIG) -o $(OUTPUT_NAME)
 
-local: i2c.cpp
+local: main.cpp
 		make clean
 		$(BUILD)
 
-remote: i2c.cpp
+remote: main.cpp
 		make clean
 		git pull
 		$(BUILD)
