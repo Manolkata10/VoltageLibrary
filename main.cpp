@@ -4,12 +4,12 @@
 int main()
 {
 	I2C i2c;
-	char buffer[2] = {0, 0};
+	unsigned char buffer[2] = {0, 0};
 	i2c.openFile(0x58);
 
 	char sender[1] = {0x30};
 	i2c.sendFile(sender, 1);
-	i2c.close();
+	i2c.closeFile();
 	i2c.openFile(0x58);
 
 	i2c.readFile(buffer, 2);
