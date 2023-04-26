@@ -7,7 +7,8 @@ int main()
 	char buffer[2] = {0, 0};
 	i2c.openFile(0x58);
 
-	i2c.sendFile(0x30);
+	char sender[1] = {0x30};
+	i2c.sendFile(sender, 1);
 	i2c.close();
 	i2c.openFile(0x58);
 
