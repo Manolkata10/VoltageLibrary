@@ -6,7 +6,7 @@ class VoltageReader
 		I2C i2c;
 
 	public:
-		float getVoltage(unsigned char index);
+		float getVoltage(int index);
 
 		VoltageReader();
 		~VoltageReader();
