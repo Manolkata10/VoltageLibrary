@@ -9,13 +9,14 @@ int main()
 
 	char sender[1] = {0x30};
 	i2c.sendFile(sender, 1);
-	i2c.closeFile();
-	i2c.openFile(0x58);
-
 	i2c.readFile(buffer, 2);
 
-	std::cout << (int)buffer[0] << std::endl;
-	std::cout << (int)buffer[1] << std::endl;
+	int temp = buffer[1];
+	temp <<= 8;
+	temp |= buffer[0];
+
+	vcc = (3.3*temp)/1023;
+	printf("AN1: %.3fV\n", vcc);
 
 	i2c.closeFile();
 	return 0;
