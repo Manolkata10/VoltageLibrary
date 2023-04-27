@@ -16,6 +16,8 @@ int main()
 
 	std::cout << (int)buffer[0] << std::endl;
 	std::cout << (int)buffer[1] << std::endl;
+
+	i2c.closeFile();
 	return 0;
 
 }
