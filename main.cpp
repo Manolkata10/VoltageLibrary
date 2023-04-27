@@ -15,7 +15,7 @@ int main()
 	temp <<= 8;
 	temp |= buffer[0];
 
-	vcc = (3.3*temp)/1023;
+	float vcc = (3.3*temp)/1023;
 	printf("AN1: %.3fV\n", vcc);
 
 	i2c.closeFile();
