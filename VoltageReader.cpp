@@ -18,9 +18,9 @@ float VoltageReader::getVoltage(int index)
 	i2c.sendFile(writeData, 1);
 	i2c.readFile(readData, 2);
 
-	int temp = buffer[1];
+	int temp = readData[1];
 	temp <<= 8;
-	temp |= buffer[0];
+	temp |= readData[0];
 
 	return (3.3*temp)/1023;
 }
