@@ -10,7 +10,7 @@ VoltageReader::~VoltageReader()
 	i2c.closeFile();
 }
 
-float VoltageReader::getVoltage(int index)
+float VoltageReader::getVoltage(unsigned char index)
 {
 	char writeData[1] = {(index % 4) + 0x30};
 	unsigned char readData[2] = {0, 0};
