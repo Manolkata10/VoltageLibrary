@@ -1,24 +1,14 @@
-#include "../I2CLib/i2c.h"
+#include "VoltageReader.h"
 #include <iostream>
 
 int main()
 {
-	I2C i2c;
-	unsigned char buffer[2] = {0, 0};
-	i2c.openFile(0x58);
+	VoltageReader vr;
 
-	char sender[1] = {0x30};
-	i2c.sendFile(sender, 1);
-	i2c.readFile(buffer, 2);
-
-	int temp = buffer[1];
-	temp <<= 8;
-	temp |= buffer[0];
-
-	float vcc = (3.3*temp)/1023;
-	printf("AN1: %.3fV\n", vcc);
-
-	i2c.closeFile();
+	std::cout << getVoltage(0) << std::endl;
+	std::cout << getVoltage(1) << std::endl;
+	std::cout << getVoltage(2) << std::endl;
+	std::cout << getVoltage(3) << std::endl;
 	return 0;
 
 }
